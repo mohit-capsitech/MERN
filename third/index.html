@@ -4,181 +4,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-</head>
+    <title>Luxury Car Rental</title>
 
-<body>
-    <!DOCTYPE html>
-    <html>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>xxwc 
 
-    <head>
-        <title>Luxury Car Rental</title>
-    </head>
-    <link rel="stylesheet" href="C:\mohit\my project\third\css\style.css">
+<body class="min-h-screen bg-slate-50 text-gray-800">
 
-    <body>
-        <header class="navbar">
+    <!-- Navbar -->
+    <header
+        class="relative flex w-full items-center justify-between border-b border-gray-200 bg-slate-50 px-6 py-4 md:px-[6%]">
+        <a href="/" class="shrink-0">
+            <img src="assests/logo.svg" alt="Luxury Car Rental" class="h-8 w-auto">
+        </a>
 
-            <!-- Logo -->
-            <a href="/" class="logo">
-                <img src="C:\mohit\my project\third\assests\logo.svg" alt="Logo">
-            </a>
+        <nav id="navMenu" class="hidden items-center gap-7 lg:flex">
+            <a href="/" class="text-gray-600 transition hover:text-blue-600">Home</a>
+            <a href="/cars" class="text-gray-600 transition hover:text-blue-600">Cars</a>
+            <a href="/my-bookings" class="text-gray-600 transition hover:text-blue-600">My Bookings</a>
 
-            <!-- Navigation Menu -->
-            <nav class="nav-menu" id="navMenu">
+            <label class="flex items-center rounded-full border border-gray-300 bg-white px-3 py-2">
+                <span class="sr-only">Search cars</span>
+                <input type="search" placeholder="Search cars"
+                    class="w-36 bg-transparent text-sm outline-none placeholder:text-gray-400">
+            </label>
 
-                <a href="/">Home</a>
-                <a href="/cars">Cars</a>
-                <a href="/my-bookings">My Bookings</a>
+            <div class="flex items-center gap-6">
+                <button type="button" class="font-medium text-gray-700 transition hover:text-blue-600">List
+                    Cars</button>
+                <button type="button"
+                    class="rounded-lg bg-blue-600 px-7 py-2.5 font-medium text-white transition hover:bg-blue-700">Login</button>
+            </div>
+        </nav>
 
-                <!-- Search -->
-                <div class="search-box">
-                    <input type="text" placeholder="Search cars">
-                </div>
-
-                <!-- Buttons -->
-                <div class="nav-buttons">
-                    <button type="button" class="list-btn">List Cars</button>
-                    <button type="button" class="login-btn">Login</button>
-                </div>
-
+        <!-- Mobile menu links are shown in a simple row below on small screens -->
+        <details class="relative lg:hidden">
+            <summary
+                class="cursor-pointer list-none rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700">
+                Menu
+            </summary>
+            <nav
+                class="absolute right-0 top-12 z-20 flex min-w-52 flex-col gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-lg">
+                <a href="/" class="text-gray-700 hover:text-blue-600">Home</a>
+                <a href="/cars" class="text-gray-700 hover:text-blue-600">Cars</a>
+                <a href="/my-bookings" class="text-gray-700 hover:text-blue-600">My Bookings</a>
+                <input type="search" placeholder="Search cars" aria-label="Search cars"
+                    class="rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-blue-600">
+                <button type="button" class="text-left font-medium text-gray-700">List Cars</button>
+                <button type="button"
+                    class="rounded-lg bg-blue-600 px-5 py-2.5 text-white hover:bg-blue-700">Login</button>
             </nav>
-        </header>
+        </details>
+    </header>
 
-        <div class="car-section">
+    <main>
+        <!-- Hero / Booking Section -->
+        <section
+            class="flex min-h-[600px] w-full flex-col items-center justify-center gap-9 overflow-hidden bg-[#f5f7fa] px-5 py-16">
+            <h1 class="text-center text-3xl font-bold text-gray-900 sm:text-4xl md:text-[42px]">
+                Luxury Car on Rent
+            </h1>
 
-            <h1>Luxury Car on Rent</h1>
-
-            <form class="container">
-
-                <div class="booking-details">
-
-                    <div class="location">
-                        <select required>
-                            <option value="">Pickup Location</option>
+            <form class="w-full max-w-5xl rounded-full bg-white p-5 shadow-[0_5px_20px_rgba(0,0,0,0.08)] md:p-7">
+                <div class="grid grid-cols-1 items-end gap-5 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_auto]">
+                    <div class="flex flex-col gap-2">
+                        <label for="location" class="text-sm font-semibold text-gray-700">Pickup Location</label>
+                        <select id="location" name="location" required
+                            class="w-full bg-white p-3 text-sm outline-none">
+                            <option value="">Select Your Location</option>
                             <option value="New York">New York</option>
                             <option value="Los Angeles">Los Angeles</option>
                             <option value="Houston">Houston</option>
                             <option value="Chicago">Chicago</option>
                         </select>
-
-                        <p>Select Your Location</p>
                     </div>
 
-                    <div class="pickup-date">
-                        <label for="pickup-date">Pick-up Date</label>
-                        <input min="2026-11-16" id="pickup-date" type="date" required>
+                    <div class="flex flex-col gap-2">
+                        <label for="pickup-date" class="text-sm font-semibold text-gray-700">Pick-up Date</label>
+                        <input id="pickup-date" name="pickup-date" type="date" min="2026-11-17" required
+                            class="w-full p-3 text-sm outline-none">
                     </div>
 
-                    <div class="return-date">
-                        <label for="return-date">Return Date</label>
-                        <input min="2026-11-16" id="return-date" type="date" required>
-
+                    <div class="flex flex-col gap-2">
+                        <label for="return-date" class="text-sm font-semibold text-gray-700">Return Date</label>
+                        <input id="return-date" name="return-date" type="date" min="2026-11-17" required
+                            class="w-full p-3 text-sm outline-none">
                     </div>
 
-
-                    <button type="submit">
-
+                    <button type="submit"
+                        class="rounded-md bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-700">
                         Search
                     </button>
                 </div>
-
             </form>
 
-            <img src="C:\mohit\my project\third\assests\main_car.png" alt="Luxury car" class="car-image">
-            <footer class="footer">
+            <img src="assests/main_car.png" alt="Luxury car available for rent"
+                class="h-auto w-full max-w-4xl object-contain">
+        </section>
+    </main>
 
-                <div class="footer-main">
+    <!-- Footer -->
+    <footer class="w-full bg-gray-900 px-6 pb-5 pt-14 text-white md:px-[7%]">
+        <div class="flex flex-wrap justify-between gap-10">
+            <div class="min-w-[230px] flex-[1.5]">
+                <img src="assests/logo.svg" alt="Luxury Car Rental" class="mb-5 h-auto w-36">
+                <p class="max-w-sm text-sm leading-7 text-slate-300">
+                    Premium car rental service with a wide selection of luxury and everyday vehicles for all your
+                    driving needs.
+                </p>
 
-                    <!-- Logo and Description -->
-                    <div class="footer-about">
-
-                        <img src="C:\mohit\my project\third\assests\logo.svg" alt="Logo">
-
-                        <p>
-                            Premium car rental service with a wide selection
-                            of luxury and everyday vehicles for all your
-                            driving needs.
-                        </p>
-
-                        <!-- Social Media Links -->
-                        <div class="social-links">
-
-                            <a href="#">
-                                <img src="C:\mohit\my project\third\assests\facebook.svg" alt="Facebook">
-                            </a>
-
-                            <a href="#">
-                                <img src="C:\mohit\my project\third\assests\instagram.svg" alt="Instagram">
-                            </a>
-
-                            <a href="#">
-                                <img src="C:\mohit\my project\third\assests\twitter.svg" alt="Twitter">
-                            </a>
-
-                            <a href="#">
-                                <img src="C:\mohit\my project\third\assests\email.svg" alt="Email">
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <!-- Footer Links -->
-                    <div class="footer-links">
-
-                        <div>
-                            <h2>Quick Links</h2>
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Browse Cars</a></li>
-                                <li><a href="#">List Your Car</a></li>
-                                <li><a href="#">About Us</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h2>Resources</h2>
-                            <ul>
-                                <li><a href="#">Help Center</a></li>
-                                <li><a href="#">Terms of Service</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Insurance</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h2>Contact</h2>
-                            <ul>
-                                <li>1234 Luxury Drive</li>
-                                <li>San Francisco, CA 94107</li>
-                                <li>+1 234 567890</li>
-                                <li>info@example.com</li>
-                            </ul>
-                        </div>
-
-                    </div>
-
+                <div class="mt-5 flex gap-4">
+                    <a href="#" aria-label="Facebook"
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-700 transition hover:bg-blue-600">
+                        <img src="assests/facebook.svg" alt="" class="h-[17px] w-[17px]">
+                    </a>
+                    <a href="#" aria-label="Instagram"
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-700 transition hover:bg-blue-600">
+                        <img src="assests/instagram.svg" alt="" class="h-[17px] w-[17px]">
+                    </a>
+                    <a href="#" aria-label="Twitter"
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-700 transition hover:bg-blue-600">
+                        <img src="assests/twitter.svg" alt="" class="h-[17px] w-[17px]">
+                    </a>
+                    <a href="mailto:info@example.com" aria-label="Email"
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-700 transition hover:bg-blue-600">
+                        <img src="assests/email.svg" alt="" class="h-[17px] w-[17px]">
+                    </a>
                 </div>
+            </div>
 
-                <!-- Copyright Section -->
-                <div class="footer-bottom">
-
-                    <p>© 2026 <a href="https://github.com/mohit-capsitech/" target="_blank">Mohit Kulriya</a>.</p>
-
-                    <ul class="footer-bottom-links">
-
-                        <li><a href="https://github.com/jagdishsuthar-capsitech/" target="_blank">
-                                Refernce by Jagdish:)
-                            </a></li>
+            <div class="flex flex-1 flex-wrap gap-10 sm:gap-14">
+                <div class="min-w-[130px]">
+                    <h2 class="mb-5 text-lg font-semibold">Quick Links</h2>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li><a href="/" class="hover:text-white">Home</a></li>
+                        <li><a href="/cars" class="hover:text-white">Browse Cars</a></li>
+                        <li><a href="#" class="hover:text-white">List Your Car</a></li>
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
                     </ul>
-
                 </div>
 
-            </footer>
+                <div class="min-w-[130px]">
+                    <h2 class="mb-5 text-lg font-semibold">Resources</h2>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li><a href="#" class="hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Insurance</a></li>
+                    </ul>
+                </div>
 
-    </body>
+                <div class="min-w-[150px]">
+                    <h2 class="mb-5 text-lg font-semibold">Contact</h2>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li>1234 Luxury Drive</li>
+                        <li>San Francisco, CA 94107</li>
+                        <li>+1 234 567890</li>
+                        <li>info@example.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    </html>
+        <div
+            class="mt-12 flex flex-wrap items-center justify-between gap-5 border-t border-gray-700 pt-5 text-sm text-slate-400">
+            <p>
+                © 2026
+                <a href="https://github.com/mohit-capsitech/" target="_blank" rel="noopener noreferrer"
+                    class="ml-1 text-slate-300 hover:text-white">Mohit Kulriya</a>.
+            </p>
+            <p>
+                <a href="https://github.com/jagdishsuthar-capsitech/" target="_blank" rel="noopener noreferrer"
+                    class="text-slate-300 hover:text-white">
+                    Reference by Jagdish :)
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Keep return date on or after pickup date -->
+    <script>
+        const pickupDate = document.getElementById("pickup-date");
+        const returnDate = document.getElementById("return-date");
+
+        pickupDate.addEventListener("change", function () {
+            returnDate.min = this.value;
+
+            if (returnDate.value && returnDate.value < this.value) {
+                returnDate.value = this.value;
+            }
+        });
+    </script>
+
 </body>
 
 </html>
