@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Choose your laundry services and book a pickup." />
+    <title>Our Services | Laundry Services</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="services-page">
+    <main class="services-layout">
+      <section class="services-card" aria-labelledby="services-title">
+        <h1 id="services-title">Our Services</h1>
+        <p class="services-subtitle">Click On The Add To Cart Button To Add The Services To Your Cart</p>
+        <div class="services-rule"></div>
+        <div id="service-list" class="service-list"></div>
+        <p class="services-help"><span>i</span> Add the items to the cart and book now</p>
+      </section>
+
+      <aside class="services-sidebar">
+        <section class="cart-card" aria-labelledby="cart-title">
+          <h2 id="cart-title">Added Items</h2>
+          <div class="cart-table-wrap"><table><thead><tr><th>S.No</th><th>Service Name</th><th>Price</th></tr></thead><tbody id="cart-items"></tbody></table></div>
+          <div class="cart-total"><strong>Total Amount</strong><strong id="total-amount">₹ 0.00</strong></div>
+        </section>
+        <section class="booking-card" aria-labelledby="booking-title">
+          <h2 id="booking-title">Book Now</h2>
+          <form id="booking-form">
+            <label class="full-field">Full Name<input type="text" placeholder="John Doe" required /></label>
+            <div class="booking-fields"><label>Email ID<input type="email" placeholder="mail@gmail.com" required /></label><label>Phone Number<input type="tel" placeholder="0000000000" required /></label></div>
+            <button type="submit">Book now</button><p id="booking-message" class="booking-message" role="status"></p>
+          </form>
+        </section>
+      </aside>
+    </main>
+    <script src="services.js"></script>
+  </body>
+</html>
